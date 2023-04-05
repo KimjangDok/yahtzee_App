@@ -1,0 +1,14 @@
+{
+  "images" : [
+    {
+      "filename" : "depositphotos_5427600-stock-photo-red-dice.jpg",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
