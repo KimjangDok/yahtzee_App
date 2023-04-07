@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var count: UILabel!
     
+    let diceImageArray = [UIImage(imageLiteralResourceName: "diceOne_96"), UIImage(imageLiteralResourceName: "diceTwo_96"), UIImage(imageLiteralResourceName: "diceThree_96"), UIImage(imageLiteralResourceName: "diceFour_96"), UIImage(imageLiteralResourceName: "diceFive_96"), UIImage(imageLiteralResourceName: "diceSix_96")]
+    
     var countAttempt = 1
     
     var clickedFlag1 = false
@@ -27,15 +29,20 @@ class ViewController: UIViewController {
     var clickedFlag4 = false
     var clickedFlag5 = false
     
+    var resultNumbers = [1,1,1,1,1]
+    var hold = [false, false, false, false, false]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        /*
         diceView1.image = UIImage(imageLiteralResourceName: "diceOne_96")
         diceView2.image = UIImage(imageLiteralResourceName: "diceOne_96")
         diceView3.image = UIImage(imageLiteralResourceName: "diceOne_96")
         diceView4.image = UIImage(imageLiteralResourceName: "diceOne_96")
         diceView5.image = UIImage(imageLiteralResourceName: "diceOne_96")
+        */
+        initFunction()
         
         let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(imageTapped1))
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(imageTapped2))
@@ -70,72 +77,25 @@ class ViewController: UIViewController {
 //        let n4 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
 //        let n5 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
         
-        var prevNumbers = [1,1,1,1,1]
-        var resultNumbers = [1,1,1,1,1]
         
-        switch countAttempt{
-        case 1:
-            let na = getRandomNumbers()
-            
-            prevNumbers = [na[0], na[1], na[2], na[3], na[4]]
-            
-            resultNumbers = prevNumbers
-            print("resultNumbers1 : \(resultNumbers)")
-            
-            break
-        case 2:
-            let na = getRandomNumbers()
-            
-            let ScndResult = [prevNumbers[0], na[1], prevNumbers[2], na[3], na[4]]
-            resultNumbers = ScndResult
-            print("resultNumbers2 : \(resultNumbers)")
-            break
-        case 3:
-            let na = getRandomNumbers()
-            
-            let ThirdResult = [prevNumbers[0], prevNumbers[1], prevNumbers[2], na[3], na[4]]
-            resultNumbers = ThirdResult
-            print("resultNumbers3 : \(resultNumbers)")
-            break
-        default:
-            break
+//        print(hold.startIndex) //0
+//        print(hold.endIndex) //5
+//        print("---------")
+        
+        //Decide whether dices to hold or not
+        for i in hold.startIndex..<hold.endIndex {
+            if(hold[i]){
+//                print(" X ")
+                continue
+            }else{
+                resultNumbers[i] = Int.random(in: 1...6)
+                print(resultNumbers[i])
+            }
         }
         
-        diceImageChange(var1: resultNumbers[0], var2: resultNumbers[1], var3: resultNumbers[2], var4: resultNumbers[3], var5: resultNumbers[4])
-
+        recordScores(resultNumbers:resultNumbers)
         
-        //first one
-        //let na = [n1, n2, n3, n4, n5]
-        //print("na : \(na)")
-        
-//        let na2 = getRandomNumbers()
-//        var tempA = [firstNumbers[0], na2[1], firstNumbers[2], na2[3], na2[4]]
-//
-//        print("temp : \(tempA)")
-        
-//        if(clickedFlag1){
-//
-//            print(tempA)
-//
-//        }
-        
-//        diceImageChange(var1: tempA[0], var2: tempA[1], var3: tempA[2], var4: tempA[3], var5: tempA[4])
-        
-        
-        
-//        if(clickedFlag1){ print(ma) }
-//        let na = [n1, n2, n3, n4, n5]
-//        print(na)
-        
-        
-        //let result = [n1, n2, n3, n4, n5] //dices to display
-        
-        //display dices
-//        diceImageChange(var1: n1, var2: n2, var3: n3, var4: n4, var5: n5)
-
-        //print(ma[0])
-        
-        //print("ma[0]: \(ma[0])")
+        diceImageChange(resultNumbers:resultNumbers)
         
         
         count.text = "Attempt : "
@@ -147,44 +107,81 @@ class ViewController: UIViewController {
         
     }
     
+    func initFunction(){
+        countAttempt = 1
+        
+    }
+    
+    //Get random number and returns as arrays
     func getRandomNumbers() -> Array<Int>{
+        /*
         let n1 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
         let n2 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
         let n3 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
         let n4 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
         let n5 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
+        */
         
-        let resultArray = [n1, n2, n3, n4, n5]
+        //let n = Int.random(in: 1...6)
+        
+        let resultArray = [Int.random(in: 1...6),
+                           Int.random(in: 1...6),
+                           Int.random(in: 1...6),
+                           Int.random(in: 1...6),
+                           Int.random(in: 1...6)]
         
         return resultArray
     }
     
-    func diceImageChange(var1:Int, var2:Int, var3:Int, var4:Int, var5:Int){
-        
-        let diceImageArray = [UIImage(imageLiteralResourceName: "diceOne_96"), UIImage(imageLiteralResourceName: "diceTwo_96"), UIImage(imageLiteralResourceName: "diceThree_96"), UIImage(imageLiteralResourceName: "diceFour_96"), UIImage(imageLiteralResourceName: "diceFive_96"), UIImage(imageLiteralResourceName: "diceSix_96")]
-        
-        diceView1.image = diceImageArray[var1-1]
+    //Get Dice image
+    func diceImageChange(resultNumbers:[Int]){
+        diceView1.image = diceImageArray[resultNumbers[0]-1]
         //diceView1.image = diceImageArray.randomElement() // also randomize among indexes..
-        diceView2.image = diceImageArray[var2-1]
-        diceView3.image = diceImageArray[var3-1]
-        diceView4.image = diceImageArray[var4-1]
-        diceView5.image = diceImageArray[var5-1]
+        diceView2.image = diceImageArray[resultNumbers[1]-1]
+        diceView3.image = diceImageArray[resultNumbers[2]-1]
+        diceView4.image = diceImageArray[resultNumbers[3]-1]
+        diceView5.image = diceImageArray[resultNumbers[4]-1]
+    }
+    
+    //records scores at score sheet
+    func recordScores(resultNumbers:[Int]){
+        print(resultNumbers)
         
+        
+        //1
+        //2
+        //3
+        //4
+        //5
+        //6
+        //+35 Bonus (when 63 over)
+        //Upper Total
+        
+        //3Kind
+        //4Kind
+        //Full House
+        //Small Straight
+        //Large Straight
+        //Yahtzee
+        //Chance
+        //Lower Total
+        
+        //Total Score
     }
     
     @objc func imageTapped1(sender: UITapGestureRecognizer){
         if(clickedFlag1){ //Dice has NOT been selected
             clickedFlag1 = false
             diceView1.backgroundColor = UIColor.green.withAlphaComponent(0.0)
-            print(1)
         }
         else if(!clickedFlag1){ //Dice has been selected
             clickedFlag1 = true
             diceView1.backgroundColor = UIColor.green.withAlphaComponent(0.5)
-            print(2)
         }
-//        print("tapped 1")
+        print("clickedFlag1 : \(clickedFlag1)")
+        hold[0] = clickedFlag1
     }
+    
     @objc func imageTapped2(sender: UITapGestureRecognizer){
         if(clickedFlag2){
             clickedFlag2 = false
@@ -194,8 +191,10 @@ class ViewController: UIViewController {
             clickedFlag2 = true
             diceView2.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         }
-//        print("tapped 2")
+        print("clickedFlag2 : \(clickedFlag2)")
+        hold[1] = clickedFlag2
     }
+    
     @objc func imageTapped3(sender: UITapGestureRecognizer){
         if(clickedFlag3){
             clickedFlag3 = false
@@ -205,8 +204,10 @@ class ViewController: UIViewController {
             clickedFlag3 = true
             diceView3.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         }
-//        print("tapped 3")
+        print("clickedFlag3 : \(clickedFlag3)")
+        hold[2] = clickedFlag3
     }
+    
     @objc func imageTapped4(sender: UITapGestureRecognizer){
         if(clickedFlag4){
             clickedFlag4 = false
@@ -216,8 +217,10 @@ class ViewController: UIViewController {
             clickedFlag4 = true
             diceView4.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         }
-//        print("tapped 4")
+        print("clickedFlag4 : \(clickedFlag4)")
+        hold[3] = clickedFlag4
     }
+    
     @objc func imageTapped5(sender: UITapGestureRecognizer){
         if(clickedFlag5){
             clickedFlag5 = false
@@ -227,7 +230,16 @@ class ViewController: UIViewController {
             clickedFlag5 = true
             diceView5.backgroundColor = UIColor.green.withAlphaComponent(0.5)
         }
-//        print("tapped 5")
+        print("clickedFlag5 : \(clickedFlag5)")
+        hold[4] = clickedFlag5
+    }
+    
+    @IBAction func scoreSheetPressed(_ sender: UIButton) {
+        print("scoreSheetPressed")
+    }
+    
+    @IBAction func leaderboardPressed(_ sender: UIButton) {
+        print("leaderboardPressed")
     }
     
 

@@ -70,6 +70,9 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Leaderboard"/>
+                                <connections>
+                                    <action selector="leaderboardPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1oL-o8-b6e"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifJ-jm-q7X">
                                 <rect key="frame" x="16" y="749" width="117" height="35"/>
@@ -78,6 +81,9 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Score Sheet"/>
+                                <connections>
+                                    <action selector="scoreSheetPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r8L-Uc-vjs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
