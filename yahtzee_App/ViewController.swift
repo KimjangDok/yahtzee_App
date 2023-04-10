@@ -42,8 +42,11 @@ class ViewController: UIViewController {
         diceView4.image = UIImage(imageLiteralResourceName: "diceOne_96")
         diceView5.image = UIImage(imageLiteralResourceName: "diceOne_96")
         */
+        
+        // initialize function
         initFunction()
         
+        // ClickListener of image
         let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(imageTapped1))
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(imageTapped2))
         let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(imageTapped3))
@@ -93,11 +96,13 @@ class ViewController: UIViewController {
             }
         }
         
-        recordScores(resultNumbers:resultNumbers)
-        
+        // Changes dices image to current numbers
         diceImageChange(resultNumbers:resultNumbers)
+        // Set scores to sheet
+        recordScores(resultNumbers:resultNumbers)
+
         
-        
+        // Count attempt
         count.text = "Attempt : "
         count.text = (count.text ?? "") +  String(countAttempt)
         
@@ -235,10 +240,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func scoreSheetPressed(_ sender: UIButton) {
+        // Go to scoresheet display
         print("scoreSheetPressed")
     }
     
     @IBAction func leaderboardPressed(_ sender: UIButton) {
+        // Go to leaderboard display
         print("leaderboardPressed")
     }
     
