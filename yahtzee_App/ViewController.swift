@@ -32,6 +32,9 @@ class ViewController: UIViewController {
     var resultNumbers = [1,1,1,1,1]
     var hold = [false, false, false, false, false]
     
+    var totalScore = 0; //Total Score from this game
+    var bestScoreArray = [100, 200, 300]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -152,7 +155,7 @@ class ViewController: UIViewController {
     func recordScores(resultNumbers:[Int]){
         print(resultNumbers)
         
-        
+        totalScore = 150; //for test
         //1
         //2
         //3
@@ -246,7 +249,16 @@ class ViewController: UIViewController {
     
     @IBAction func leaderboardPressed(_ sender: UIButton) {
         // Go to leaderboard display
+        
+        print(totalScore)
+        
+        bestScoreArray.append(totalScore) //Add current score to array
+        bestScoreArray.sort() //Array sorting
+        bestScoreArray.reverse() //backwards
+        
+        print(bestScoreArray)
         print("leaderboardPressed")
+        
     }
     
 
