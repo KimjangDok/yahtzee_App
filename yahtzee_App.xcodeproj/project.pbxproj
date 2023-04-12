@@ -18,6 +18,8 @@
 		B27D423A29DD0539004D4B08 /* yahtzee_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D423929DD0539004D4B08 /* yahtzee_AppUITestsLaunchTests.swift */; };
 		B27D424729E39C5C004D4B08 /* ScoreboardScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B27D424629E39C5C004D4B08 /* ScoreboardScreen.storyboard */; };
 		B27D424929E39CBC004D4B08 /* LeaderboardScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B27D424829E39CBC004D4B08 /* LeaderboardScreen.storyboard */; };
+		B27D428729E695E9004D4B08 /* ScoreSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D428629E695E9004D4B08 /* ScoreSheetViewController.swift */; };
+		B27D428929E6962C004D4B08 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D428829E6962C004D4B08 /* LeaderboardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		B27D423929DD0539004D4B08 /* yahtzee_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yahtzee_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B27D424629E39C5C004D4B08 /* ScoreboardScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScoreboardScreen.storyboard; sourceTree = "<group>"; };
 		B27D424829E39CBC004D4B08 /* LeaderboardScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LeaderboardScreen.storyboard; sourceTree = "<group>"; };
+		B27D428629E695E9004D4B08 /* ScoreSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSheetViewController.swift; sourceTree = "<group>"; };
+		B27D428829E6962C004D4B08 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				B27D421629DD0537004D4B08 /* AppDelegate.swift */,
 				B27D421829DD0537004D4B08 /* SceneDelegate.swift */,
 				B27D421A29DD0537004D4B08 /* ViewController.swift */,
+				B27D428629E695E9004D4B08 /* ScoreSheetViewController.swift */,
+				B27D428829E6962C004D4B08 /* LeaderboardViewController.swift */,
 				B27D424629E39C5C004D4B08 /* ScoreboardScreen.storyboard */,
 				B27D421C29DD0537004D4B08 /* Main.storyboard */,
 				B27D421F29DD0539004D4B08 /* Assets.xcassets */,
@@ -267,6 +273,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B27D421B29DD0537004D4B08 /* ViewController.swift in Sources */,
+				B27D428729E695E9004D4B08 /* ScoreSheetViewController.swift in Sources */,
+				B27D428929E6962C004D4B08 /* LeaderboardViewController.swift in Sources */,
 				B27D421729DD0537004D4B08 /* AppDelegate.swift in Sources */,
 				B27D421929DD0537004D4B08 /* SceneDelegate.swift in Sources */,
 			);

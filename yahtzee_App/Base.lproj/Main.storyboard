@@ -4,14 +4,13 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="yahtzee_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainStoryboard" id="BYZ-38-t0r" customClass="ViewController" customModule="yahtzee_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,6 +72,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Leaderboard"/>
                                 <connections>
                                     <action selector="leaderboardPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1oL-o8-b6e"/>
+                                    <segue destination="RdP-cm-8tw" kind="popoverPresentation" popoverAnchorView="qm1-nw-Kup" id="TA1-OJ-wbx">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifJ-jm-q7X">
@@ -84,18 +86,11 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Score Sheet"/>
                                 <connections>
                                     <action selector="scoreSheetPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r8L-Uc-vjs"/>
+                                    <segue destination="NHo-PU-yQo" kind="popoverPresentation" popoverAnchorView="ifJ-jm-q7X" id="9c6-lD-EsO">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eNn-zA-9K1">
-                                <rect key="frame" x="0.0" y="59" width="393" height="682"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xax-fe-DJO">
-                                <rect key="frame" x="0.0" y="289" width="393" height="452"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.21706763570000001" green="0.43446180559999997" blue="0.074912963339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -114,12 +109,25 @@
             </objects>
             <point key="canvasLocation" x="67.938931297709928" y="-34.507042253521128"/>
         </scene>
+        <!--scoreSheetStoryboard-->
+        <scene sceneID="15e-eY-v6W">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="scoreSheetStoryboard" storyboardName="ScoreboardScreen" referencedIdentifier="scoreSheetStoryboard" id="NHo-PU-yQo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YDe-Wq-D0N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="717" y="-162"/>
+        </scene>
+        <!--leaderboardStoryboard-->
+        <scene sceneID="wbo-aZ-VB5">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="leaderboardStoryboard" storyboardName="LeaderboardScreen" referencedIdentifier="leaderboardStoryboard" id="RdP-cm-8tw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hEJ-jA-Y96" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="722" y="-13"/>
+        </scene>
     </scenes>
     <resources>
         <image name="diceCubes_purple_96" width="96" height="96"/>
         <image name="diceOne_96" width="96" height="96"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
