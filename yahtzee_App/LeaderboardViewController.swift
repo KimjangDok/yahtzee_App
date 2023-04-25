@@ -22,7 +22,7 @@ class LeaderboardViewController: UIViewController {
         closeButton.isUserInteractionEnabled = true
         closeButton.addGestureRecognizer(tapGesture1)
         
-//        leaderboardListLabel.text = view.
+//        leaderboardListLabel.text = Main
     }
     
     @objc func closeButtonTapped(sender: UITapGestureRecognizer){
