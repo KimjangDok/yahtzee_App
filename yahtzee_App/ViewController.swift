@@ -78,15 +78,8 @@ class ViewController: UIViewController {
     @IBAction func rollButtonPressed(_ sender: UIButton) {
         
 //        let n1 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
-//        let n2 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
-//        let n3 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
-//        let n4 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
-//        let n5 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
-        
-        
 //        print(hold.startIndex) //0
 //        print(hold.endIndex) //5
-//        print("---------")
         
         //Decide whether dices to hold or not
         for i in hold.startIndex..<hold.endIndex {
@@ -98,6 +91,8 @@ class ViewController: UIViewController {
                 print(resultNumbers[i])
             }
         }
+        
+
         
         // Changes dices image to current numbers
         diceImageChange(resultNumbers:resultNumbers)
@@ -122,14 +117,7 @@ class ViewController: UIViewController {
     
     //Get random number and returns as arrays
     func getRandomNumbers() -> Array<Int>{
-        /*
-        let n1 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
-        let n2 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
-        let n3 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
-        let n4 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
-        let n5 = Int.random(in: 1...6) // 1-6 random type 0-5 cause of index
-        */
-        
+        // 1-6 random type 0-5 cause of index
         //let n = Int.random(in: 1...6)
         
         let resultArray = [Int.random(in: 1...6),
@@ -156,25 +144,7 @@ class ViewController: UIViewController {
         print(resultNumbers)
         
         totalScore = 150; //for test
-        //1
-        //2
-        //3
-        //4
-        //5
-        //6
-        //+35 Bonus (when 63 over)
-        //Upper Total
-        
-        //3Kind
-        //4Kind
-        //Full House
-        //Small Straight
-        //Large Straight
-        //Yahtzee
-        //Chance
-        //Lower Total
-        
-        //Total Score
+
     }
     
     @objc func imageTapped1(sender: UITapGestureRecognizer){
