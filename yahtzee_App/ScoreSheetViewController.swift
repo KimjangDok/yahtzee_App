@@ -11,7 +11,7 @@ class ScoreSheetViewController: UIViewController {
     
     @IBOutlet weak var closeButton: UIImageView!
     
-    let diceList = [2,2,3,2,2]
+    let diceList = [6,6,5,5,5]
     
     var upper_bonus_flag = false
     var lower_bonus_flag = false
@@ -48,6 +48,16 @@ class ScoreSheetViewController: UIViewController {
         check_lower(scoreList:diceList)
         
         addUpperScore()
+        
+//        struct PeopleTable: View {
+//            var body: some View {
+//                Table(people) {
+//                    TableColumn("Given Name", value: \.givenName)
+//                    TableColumn("Family Name", value: \.familyName)
+//                    TableColumn("E-Mail Address", value: \.emailAddress)
+//                }
+//            }
+//        }
         
         
         
@@ -151,20 +161,26 @@ class ScoreSheetViewController: UIViewController {
         }
     }
     
-    //Upper Score 
+    //Upper Score
     func addUpperScore(){
-        var sc = 0;
+        var dice_score = 0;
+        var dice_all_score = 0;
         
         print(upperCountList)
         
+        //for-in 用法 indexと値
         for (index,val) in upperCountList.enumerated() {
-            print("index : " + String(index))
+            print("dice number : " + String(index+1))
             if(val > 0){
                 print("val : " + String(val))
-                sc = val * (index + 1)
-                print("score : " + String(sc))
+                dice_score = val * (index + 1)
+//                print("score1 : " + String(sc))
+//                sc += val * (index + 1)
+                
             }
+            dice_all_score += dice_score
         }
+        print("score2 : " + String(dice_all_score))
     }
     
     //Is this necessary? maybe need other function?
@@ -187,6 +203,29 @@ class ScoreSheetViewController: UIViewController {
         if(largeStraightFlag){ totalScore += 40 } //Large Straight
         if(yahtzeeFlag){ totalScore += 50 }       //Yahtzee
     }
+    
+    
+    
+//------------------------------------------------------for ref
+//    struct Person: Identifiable {
+//        let givenName: String
+//        let familyName: String
+//        let emailAddress: String
+//        let id = UUID()
+//
+//        var fullName: String { givenName + " " + familyName }
+//    }
+//
+//    @State private var people = [
+//        Person(givenName: "Juan", familyName: "Chavez", emailAddress: "juanchavez@icloud.com"),
+//        Person(givenName: "Mei", familyName: "Chen", emailAddress: "meichen@icloud.com"),
+//        Person(givenName: "Tom", familyName: "Clark", emailAddress: "tomclark@icloud.com"),
+//        Person(givenName: "Gita", familyName: "Kumar", emailAddress: "gitakumar@icloud.com")
+//    ]
+
+
+    
+//------------------------------------------------------for ref
 
     
     @objc func closeButtonTapped(sender: UITapGestureRecognizer){

@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol SendDataDelegate {
+    func sendData(data: [Int])
+}
+
 class ViewController: UIViewController {
+    var delegate: SendDataDelegate?
 
     @IBOutlet weak var diceView1: UIImageView!
     @IBOutlet weak var diceView2: UIImageView!
@@ -34,6 +39,8 @@ class ViewController: UIViewController {
     
     var totalScore = 0; //Total Score from this game
     var bestScoreArray = [100, 200, 300]
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -214,7 +221,7 @@ class ViewController: UIViewController {
     
     @IBAction func scoreSheetPressed(_ sender: UIButton) {
         // Go to scoresheet display
-        print("scoreSheetPressed")
+//        print("scoreSheetPressed")
     }
     
     @IBAction func leaderboardPressed(_ sender: UIButton) {
@@ -227,7 +234,7 @@ class ViewController: UIViewController {
         bestScoreArray.reverse() //backwards
         
         print(bestScoreArray)
-        print("leaderboardPressed")
+//        print("leaderboardPressed")
         
     }
     
