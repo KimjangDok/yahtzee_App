@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     
     let diceImageArray = [UIImage(imageLiteralResourceName: "diceOne_96"), UIImage(imageLiteralResourceName: "diceTwo_96"), UIImage(imageLiteralResourceName: "diceThree_96"), UIImage(imageLiteralResourceName: "diceFour_96"), UIImage(imageLiteralResourceName: "diceFive_96"), UIImage(imageLiteralResourceName: "diceSix_96")]
     
+    let totalScoreDefaults = UserDefaults.standard
+    
     var countAttempt = 1
     
     var clickedFlag1 = false
@@ -220,6 +222,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func scoreSheetPressed(_ sender: UIButton) {
+        
+        print(totalScore)
+        
+        bestScoreArray.append(totalScore) //Add current score to array
+        bestScoreArray.sort() //Array sorting
+        bestScoreArray.reverse() //backwards
+        
+        print(bestScoreArray)
+        
+        totalScoreDefaults.set(bestScoreArray, forKey: "bestScoreArray")
+        
+        
         // Go to scoresheet display
 //        print("scoreSheetPressed")
     }

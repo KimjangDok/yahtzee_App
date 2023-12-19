@@ -11,6 +11,7 @@ class ScoreSheetViewController: UIViewController {
     
     @IBOutlet weak var closeButton: UIImageView!
     
+    
     let diceList = [6,6,5,5,5]
     
     var upper_bonus_flag = false
@@ -46,28 +47,8 @@ class ScoreSheetViewController: UIViewController {
         print(diceList)
         check_upper(scoreList:diceList)
         check_lower(scoreList:diceList)
-        
         addUpperScore()
-        
-//        struct PeopleTable: View {
-//            var body: some View {
-//                Table(people) {
-//                    TableColumn("Given Name", value: \.givenName)
-//                    TableColumn("Family Name", value: \.familyName)
-//                    TableColumn("E-Mail Address", value: \.emailAddress)
-//                }
-//            }
-//        }
-        
-        
-        
-//        let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(closeButtonTapped))
-//
-//        closeButton.isUserInteractionEnabled = true
-//        closeButton.addGestureRecognizer(tapGesture1)
-        
     }
-
     
     //check upper score
     func check_upper(scoreList:[Int]){
@@ -157,8 +138,16 @@ class ScoreSheetViewController: UIViewController {
         //Check if it is yahtzee
         if(upperCountList.contains(5)){
             yahtzeeFlag = true
-            print("YAHTZEEEEEEE")
+            print("YAHTZEEEE!!!!")
         }
+    }
+    
+    //temp
+    func checkFlags(){
+        if(fullHouseFlag){ totalScore += 25 }     //Full House
+        if(smallStraightFlag){ totalScore += 35 } //Small Straight
+        if(largeStraightFlag){ totalScore += 40 } //Large Straight
+        if(yahtzeeFlag){ totalScore += 50 }       //Yahtzee
     }
     
     //Upper Score
@@ -195,38 +184,6 @@ class ScoreSheetViewController: UIViewController {
         if(choiceFlag){ totalScore += score }     //Choice
         
     }
-    
-    //temp
-    func checkFlags(){
-        if(fullHouseFlag){ totalScore += 25 }     //Full House
-        if(smallStraightFlag){ totalScore += 35 } //Small Straight
-        if(largeStraightFlag){ totalScore += 40 } //Large Straight
-        if(yahtzeeFlag){ totalScore += 50 }       //Yahtzee
-    }
-    
-    
-    
-//------------------------------------------------------for ref
-//    struct Person: Identifiable {
-//        let givenName: String
-//        let familyName: String
-//        let emailAddress: String
-//        let id = UUID()
-//
-//        var fullName: String { givenName + " " + familyName }
-//    }
-//
-//    @State private var people = [
-//        Person(givenName: "Juan", familyName: "Chavez", emailAddress: "juanchavez@icloud.com"),
-//        Person(givenName: "Mei", familyName: "Chen", emailAddress: "meichen@icloud.com"),
-//        Person(givenName: "Tom", familyName: "Clark", emailAddress: "tomclark@icloud.com"),
-//        Person(givenName: "Gita", familyName: "Kumar", emailAddress: "gitakumar@icloud.com")
-//    ]
-
-
-    
-//------------------------------------------------------for ref
-
     
     @objc func closeButtonTapped(sender: UITapGestureRecognizer){
         let i = 0;
